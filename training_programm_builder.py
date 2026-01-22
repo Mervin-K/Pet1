@@ -1,10 +1,9 @@
 
-#mark counter
+# mark counter
 
 class FatBurn():
     def __init__(self, mass):
         self.mass = mass
-
 
     def check_weight(self):
         weight1 = float(input("Enter your current weight in kilos: "))
@@ -17,6 +16,7 @@ class FatBurn():
         elif weight1 < weight2:
             print("Everything is going as planned. Be slow and steady, and you'll lose weight")
 
+
 class TrainingModality():
     def __init__(self, strength, endurance, muscles, fatloss, mod_question, diet):
         self.strength = strength
@@ -28,27 +28,27 @@ class TrainingModality():
 
     def modality(self):
         self.mod_question = input("What are you training for? What's your purpose?(strength, endurance, muscle, fatloss)")
-        #getting to know what kind of training programm will be needed.
+        # getting to know what kind of training programm will be needed.
         if self.mod_question == "strength":
             onerepmax = float(input("Enter your 1RM in kg: "))
-            #getting a metric for strength training
+            # getting a metric for strength training
             print(f"{onerepmax}kg is a good weight!")
         elif self.mod_question == "muscle":
             workweight = float(input("Enter your maximum working weight in any basic exercise for 10 reps: "))
-            #getting a metric for muscle growth training.
+            # getting a metric for muscle growth training.
             print(f"We will make your programm based on {workweight}kg!")
         elif self.mod_question == "fatloss":
             workweight = float(input("What's your working weight in bench press for 8 reps? "))
-            #getting a metric for muscle growth training, to then modify it for fat loss.
+            # getting a metric for muscle growth training, to then modify it for fat loss.
             print("We will use this weight to create you a training cycle")
         elif self.mod_question == "endurance":
             oxygen2 = float(input("Enter your VO2 max:"))
             lt = float(input("Enter your lactate threshold: "))
             rhr = float(input("Enter your resting heart rate: "))
-            #getting important metrics for endurance training.
-            print("{oxygen2}, {lt}, {rhr} are really good metrics. We will use them to create your mesocycle")
+            # getting important metrics for endurance training.
+            print(f"{oxygen2}, {lt}, {rhr} are really good metrics. We will use them to create your mesocycle")
 
-        #giving adviced on what training programm to choose
+        # giving adviced on what training programm to choose
     def experience_reform(self, xp_level: int) -> str:
         xp_level = int(input("What is your experience level?(0-none, 1-newbie, 2-I have been to the gym a couple of times, 3-intermediate, 4-experienced)"))
         pare = (xp_level, self.mod_question)
@@ -78,17 +78,18 @@ class TrainingModality():
             case(0, "no meat"):
                 return ("Consult a doctor")
             case(1, "no sweet"):
-                return("It's good, continue the same way")
+                return ("It's good, continue the same way")
             case(2, "vegeratian"):
-                return("Consult a dietologist")
+                return ("Consult a dietologist")
             case(3, "vegan"):
-                return("Be ready to buy lots of different proteins")
+                return ("Be ready to buy lots of different proteins")
             case(4, "keto"):
-                return("It's gonna be really hard to do strength or endurance training without carbs")
+                return ("It's gonna be really hard to do strength or endurance training without carbs")
             case(_, _):
-                return("No dietary restrictions, got it")
+                return ("No dietary restrictions, got it")
 
-class TrainingProgramm(): #not completed yet.
+
+class TrainingProgramm(): # not completed yet.
     def __init__(self, reps, reps_in_reserve, meso_length, work_weights, experience):
         self.reps = reps
         self.reps_in_reserve = reps_in_reserve
@@ -102,14 +103,13 @@ class TrainingProgramm(): #not completed yet.
                 return "Strength range, not ideal for hypertrophy"
             elif reps == "6-10":
                 return "Perfect for hypertrophy. Try to err on the side of higher reps"
-                #repetitions = 10
+                # repetitions = 10
                 # I will use repet variable to make a training programm that starts
                 # from 3 reps in reserve and then goes up to 1-0 reps in reserve, starting with max amount of reps-3.
             elif reps == "10-15":
                 return "Perfect for hypertrophy. Try to err on the side of lower reps"
             elif reps == "15-20":
                 return "Not ideal for hypertrophy. Go lower"
-
 
 
 class HypertrophyRepsMeso():
@@ -130,7 +130,6 @@ class HypertrophyRepsMeso():
         print(f"week 7: you will do super light weigths, like {self.hypreps / 2} with 1/2 of the previous reps. Or you can just skip a week of training")
 
 
-
 def main():
     fb = FatBurn(70)
     fb.check_weight()
@@ -143,7 +142,8 @@ def main():
         hrm = HypertrophyRepsMeso(hypreps=0)
         hrm.plan()
 
+
 if __name__ == "__main__":
     main()
-#dfdfsaf
-#I need to add fastAPI here.
+# dfdfsaf
+# I need to add fastAPI here.
